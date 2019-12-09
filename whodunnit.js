@@ -131,3 +131,37 @@ const declareMurderer = function () {
 changeMurderer();
 const verdict = declareMurderer();
 console.log(verdict);
+
+
+/*
+Episode 7
+The output will be 'The murderer is 'Mr Green.', because the changeMurderer()
+function will change the first murderer variable from 'Professor Plum' to 'Miss Scarlet',
+while the plotTwist() function will not have any effect outside the scope of the
+function.
+*/
+let murderer = 'Professor Plum';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';
+
+  const plotTwist = function() {
+    let murderer = 'Colonel Mustard';
+
+    const unexpectedOutcome = function() {
+      murderer = 'Miss Scarlet';
+    }
+
+    unexpectedOutcome();
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
+console.log(verdict);
