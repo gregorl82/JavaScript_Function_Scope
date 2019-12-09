@@ -210,3 +210,23 @@ const declareWeapon = function() {
 changeScenario();
 const verdict = declareWeapon();
 console.log(verdict);
+
+
+/*
+Episode 9
+The output will be 'The murderer is 'Professor Plum.' The if statement
+will evaluate to true, but because the let keyword is used, the change to the
+murderer variable will only occur inside the scope of the if statement.
+*/
+let murderer = 'Professor Plum';
+
+if (murderer === 'Professor Plum') {
+  let murderer = 'Mrs. Peacock';
+}
+
+const declareMurderer = function() {
+  return `The murderer is ${murderer}.`;
+}
+
+const verdict = declareMurderer();
+console.log(verdict);
