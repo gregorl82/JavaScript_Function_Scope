@@ -76,3 +76,29 @@ const declareAllSuspects = function() {
 const suspects = declareAllSuspects();
 console.log(suspects);
 console.log(`Suspect three is ${suspectThree}.`);
+
+/*
+Episode 5
+The output will be 'The weapon is the Revolver.', because even though the scenario
+object was declared as a constant, the values of the keys can still be changed so
+when the changeWeapon() function is called, the weapon property of the scenario
+is changed to 'Revolver'.
+*/
+
+const scenario = {
+  murderer: 'Miss Scarlet',
+  room: 'Kitchen',
+  weapon: 'Candle Stick'
+};
+
+const changeWeapon = function(newWeapon) {
+  scenario.weapon = newWeapon;
+}
+
+const declareWeapon = function() {
+  return `The weapon is the ${scenario.weapon}.`;
+}
+
+changeWeapon('Revolver');
+const verdict = declareWeapon();
+console.log(verdict);
