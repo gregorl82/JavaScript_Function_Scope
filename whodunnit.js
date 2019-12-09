@@ -16,10 +16,11 @@ const declareMurderer = function() {
 const verdict = declareMurderer();
 console.log(verdict);
 
+
 /*
 Episode 2
-This function will give an error, because the murderer variable has been assigned
-as a constant and is therefore immutable.
+This code will throw an error, because the murderer variable has been assigned
+as a constant and cannot be changed.
 */
 const murderer = 'Professor Plum';
 
@@ -35,6 +36,7 @@ changeMurderer();
 const verdict = declareMurderer();
 console.log(verdict);
 
+
 /*
 Episode 3
 The output will be 'First Verdict: The murderer is Mrs. Peacock' then 'Second
@@ -43,7 +45,6 @@ the murderer variable that is accessible throughout the program, while 'Mrs.
 Peacock' is only assigned to the murderer variable inside the declareMurderer()
 function.
 */
-
 let murderer = 'Professor Plum';
 
 const declareMurderer = function() {
@@ -56,6 +57,7 @@ console.log('First Verdict: ', firstVerdict);
 
 const secondVerdict = `The murderer is ${murderer}.`;
 console.log('Second Verdict: ', secondVerdict);
+
 
 /*
 Episode 4
@@ -77,6 +79,7 @@ const suspects = declareAllSuspects();
 console.log(suspects);
 console.log(`Suspect three is ${suspectThree}.`);
 
+
 /*
 Episode 5
 The output will be 'The weapon is the Revolver.', because even though the scenario
@@ -84,7 +87,6 @@ object was declared as a constant, the values of the keys can still be changed s
 when the changeWeapon() function is called, the weapon property of the scenario
 is changed to 'Revolver'.
 */
-
 const scenario = {
   murderer: 'Miss Scarlet',
   room: 'Kitchen',
@@ -101,4 +103,31 @@ const declareWeapon = function() {
 
 changeWeapon('Revolver');
 const verdict = declareWeapon();
+console.log(verdict);
+
+
+/*
+Episode 6
+The output will be 'The murderer is Mrs. White.', because the murderer variables
+inside the changeMurderer() and plotTwist() functions have been declared without
+'let' so their scope is the entire program
+*/
+let murderer = 'Colonel Mustard';
+
+const changeMurderer = function() {
+  murderer = 'Mr. Green';
+
+  const plotTwist = function() {
+    murderer = 'Mrs. White';
+  }
+
+  plotTwist();
+}
+
+const declareMurderer = function () {
+  return `The murderer is ${murderer}.`;
+}
+
+changeMurderer();
+const verdict = declareMurderer();
 console.log(verdict);
