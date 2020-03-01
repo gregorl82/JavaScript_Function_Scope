@@ -59,9 +59,37 @@
   </code></pre>
 <h3>Episode 5</h3>
   <pre><code>
+  const scenario = {
+  murderer: 'Miss Scarlet',
+  room: 'Kitchen',
+  weapon: 'Candle Stick'
+  };
+  const changeWeapon = function(newWeapon) {
+  scenario.weapon = newWeapon;
+  }
+  const declareWeapon = function() {
+  return `The weapon is the ${scenario.weapon}.`;
+  }
+  changeWeapon('Revolver');
+  const verdict = declareWeapon();
+  console.log(verdict);
   </code></pre>
 <h3>Episode 6</h3>
   <pre><code>
+  let murderer = 'Colonel Mustard';
+  const changeMurderer = function() {
+  murderer = 'Mr. Green';
+  const plotTwist = function() {
+  murderer = 'Mrs. White';
+  }
+  plotTwist();
+  }
+  const declareMurderer = function () {
+  return `The murderer is ${murderer}.`;
+  }
+  changeMurderer();
+  const verdict = declareMurderer();
+  console.log(verdict);
   </code></pre>
 <h3>Episode 7</h3>
   <pre><code>
